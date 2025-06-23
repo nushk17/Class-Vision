@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Registration - AgriConnect</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #eff9f5db;
+            color: #1B5E20;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1B5E20;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #FFB300;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #3949AB;
+            color: white;
+        }
+
+        .content {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 40%;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3949AB;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #1B5E20;
+        }
+
+        footer {
+            background-color: #1B5E20;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function ValidateRegForm() {
+    var name = document.RegForm.Name;
+    var email = document.RegForm.Email;
+    var phone = document.RegForm.phone;
+
+    var nameExp = /^[a-zA-Z\s]+$/;
+    var emailExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var phoneExp = /^[6-9]\d{9}$/;
+
+    if (!name.value.match(nameExp)) {  
+        alert("Please enter a valid name.");
+        name.focus();
+        return false;
+    }
+
+    if (email.value == "") {
+        alert("Please enter your email.");
+        email.focus();
+        return false;
+    }
+
+    if (!email.value.match(emailExp)) {
+        alert("Please enter a valid email.");
+        email.focus();
+        return false;
+    }
+
+    if (!phone.value.match(phoneExp)) {
+        alert("Please enter a valid 10-digit phone number.");
+        phone.focus();
+        return false;
+    }
+
+    return true;
+}
+
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>AgriConnect</h1>
+        <p>Your Gateway to Smart Farming</p>
+    </header>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <div class="content">
+        <h2>Farmer Registration</h2>
+        <p>Join AgriConnect to access smart farming solutions and connect with buyers easily.</p>
+        <div class="form-container">
+            <form action="#" method="POST" name="RegForm" novalidate>
+                <input type="text" name="Name" placeholder="Full Name" s>
+                <input type="email" name="Email" placeholder="Email" required>
+                <input type="text" name="phone" placeholder="Phone Number" required>
+                <input type="text" name="addr" placeholder="Address" required>
+                <select name="farm_type" required>
+                    <option value="">Select Farm Type</option>
+                    <option value="organic">Organic Farming</option>
+                    <option value="dairy">Dairy Farming</option>
+                    <option value="horticulture">Horticulture</option>
+                    <option value="poultry">Poultry Farming</option>
+                </select>
+                <button type="submit" class="btn" onclick="return ValidateRegForm()">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 AgriConnect. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
